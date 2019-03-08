@@ -4,7 +4,7 @@
 
 The 2018 approved [charter of the IETF dprive working group](https://datatracker.ietf.org/doc/charter-ietf-dprive/) contains milestones related to confidentiality aspects of transactions on the recursor-to-authoritative leg of the DNS ecosystem. One of the work items in that charter is described as:
 
-> Develop requirements for adding confidentiality to DNS exchangesbetween recursive resolvers and authoritative servers
+> Develop requirements for adding confidentiality to DNS exchanges between recursive resolvers and authoritative servers
 > (unpublished document).
 
 This is also reflected in the [milestones list of the dprive group](https://datatracker.ietf.org/wg/dprive/about/), which (as of Dec 2018) contains a respective milestone:
@@ -19,7 +19,7 @@ This document is intended to cover the milestone and charter item, as described 
 
 ## Existing and Previous Work
 
-Even though the previous charter of dprive did consider the recursor-to-resolver side as out of scope, the issue has been discussed in previous work, including:
+Even though the previous charter of dprive did consider the recursor-to-authoritative side as out of scope, the issue has been discussed in previous work, including:
 
 - [RFC 7626](https://tools.ietf.org/html/rfc7626): The introduction section discusses the information exposed to authoritative servers, and the "Risks" section (section 2) includes discussion of aspects of the recursor-authoritative leg as well.  Section 2.5.2 deals specifically with authoritative servers.
 
@@ -81,7 +81,7 @@ Those two sides are typically operated by different entities, but many entities 
   * EDNS client subnet
   * Decide between TLS and connectionless (such as COSE-based messages)
   * Costs of TLS connection vs. connectionless
-    * Technical solution, e.g. encryption of the DNS query, shouldn't enable an attack vector for DDoS or resource exhaustion. For example, only if the client uses dnsovertls, the upstream query to the authoritative will be over dnsovertls also. If the client uses UDP, the resolver won't invest resources in dnsovertls to prevent a potential resource exhaustion attack.
+    * Technical solution, e.g. encryption of the DNS query, shouldn't enable an attack vector for DDoS or resource exhaustion. For example, only if the client uses DNS-over-TLS, the upstream query to the authoritative will be over DNS-over-TLS also.  If the client uses UDP, the resolver won't invest resources in DNS-over-TLS to prevent a potential resource exhaustion attack.
     * Reuse connection state (if any)
     * Minimize server-side state (eg, with session tickets)
 
