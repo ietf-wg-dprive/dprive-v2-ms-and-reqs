@@ -27,9 +27,10 @@ Even though the previous charter of dprive did consider the recursor-to-authorit
 
 - **Gap analysis**: This seperates into various "areas". From the "pure" protocol level, with the definition of DoT, the "core" transport protocol seems to be done with RFC 7858. In terms of authentication, the existing "profiles" document (RFC 8310) is not sufficient for the auth-to-recursor case - the problems boil down to "bootstrapping". TODO: manu draft? PKI fingerprint in nameserver names? Furthermore, operational concerns might be completely different for the m:n case vs. the n:few case for stub to recurors, though many of the required "session management" specifiation is already there. Privacy problems around TLS session resumption etc. are also not directly applicable to the recursor->auth use case. Security: The properties for recursor->auth are very different from stub->recursive, especially if considering "high-profile" / "critical" auth servers (TLDs? root servers?)
 
-- **TODO** Defining design space
+- **Design Space**: Core protocol:While there may be other options (such as application level encryption of the DNS packets themselves), it appears thatperusing the well known "let's wrap the protocol into an encryption transport layer" model (see HTTP, SMTP, et.al.) is the most efficient way of addressing the problem. However, for sake of completeness, the following would also be viable options:
   - [ConfidentialDNS](https://tools.ietf.org/html/draft-wijngaards-dnsop-confidentialdns-03), other proposals
   - [non-IETF work, e.g. [DNSCurve](https://dnscurve.org/)]
+  For authentication / discovery, the design space is much broader, and might require more creative solutions (though, here as well, existing protocols could serve as "templates").
 
 
 ## Perspectives and Use Cases
