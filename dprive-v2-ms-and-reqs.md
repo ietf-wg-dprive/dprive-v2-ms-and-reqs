@@ -25,7 +25,7 @@ Even though the previous charter of dprive did consider the recursor-to-authorit
 
 - **TODO** Mailing list pointers (not covered in RFC 7626)
 
-- **TODO** Gap analysis (between work already done in DPRIVE and new work defined in new charter)
+- **Gap analysis**: This seperates into various "areas". From the "pure" protocol level, with the definition of DoT, the "core" transport protocol seems to be done with RFC 7858. In terms of authentication, the existing "profiles" document (RFC 8310) is not sufficient for the auth-to-recursor case - the problems boil down to "bootstrapping". TODO: manu draft? PKI fingerprint in nameserver names? Furthermore, operational concerns might be completely different for the m:n case vs. the n:few case for stub to recurors, though many of the required "session management" specifiation is already there. Privacy problems around TLS session resumption etc. are also not directly applicable to the recursor->auth use case. Security: The properties for recursor->auth are very different from stub->recursive, especially if considering "high-profile" / "critical" auth servers (TLDs? root servers?)
 
 - **TODO** Defining design space
   - [ConfidentialDNS](https://tools.ietf.org/html/draft-wijngaards-dnsop-confidentialdns-03), other proposals
