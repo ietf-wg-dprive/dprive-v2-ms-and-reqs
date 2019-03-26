@@ -83,8 +83,14 @@ Those two sides are typically operated by different entities, but many entities 
   * Decide between TLS and connectionless (such as COSE-based messages)
   * Costs of TLS connection vs. connectionless
     * Technical solution, e.g. encryption of the DNS query, shouldn't enable an attack vector for DDoS or resource exhaustion. For example, only if the client uses DNS-over-TLS, the upstream query to the authoritative will be over DNS-over-TLS also.  If the client uses UDP, the resolver won't invest resources in DNS-over-TLS to prevent a potential resource exhaustion attack.
-    * Reuse connection state (if any)
+    * Reuse connection state (if any) and examine resumption considerations
     * Minimize server-side state (eg, with session tickets)
+    * Need empirical studies on capacity, traffic, attack vectors
+    * Evaluate impact on architecture and footprint expansion
+    * Analyze optimal persistent connection time/time-out
+    * Analyze optimal number of persistent connections recursive resolvers should maintain
+    * Consider operational concerns with respect to capabilities signaling
+    * Develop a profile that has operational advantages for operators
 
 **TODO**: Actual requirements - what do operators “want”?
 
